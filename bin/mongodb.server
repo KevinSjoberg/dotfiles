@@ -1,0 +1,9 @@
+#!/bin/sh
+# requires MongoDB to be installed through Homebrew.
+#   brew install mongodb
+#
+
+case "$1" in
+  'start') mongod --fork ;;
+  'stop') mongo admin --eval "db.shutdownServer();" ;;
+esac

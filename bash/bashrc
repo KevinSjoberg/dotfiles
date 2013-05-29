@@ -1,0 +1,30 @@
+# Terminal device interface options
+#
+stty -ixon
+
+# Shell options
+#
+shopt -s autocd
+shopt -s cdspell
+shopt -s dirspell
+shopt -s globstar
+
+# Exports
+#
+export PS1="\W\[\033[0;32m\]\$(__git_ps1 ' (%s)')\[\033[0m\] \$ "
+export PATH=$HOME/bin/:/usr/local/share/npm/bin:/usr/local/share/python:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+export EDITOR='vim'
+export CLICOLOR=1
+
+# Evals
+#
+eval "$(rbenv init -)"
+
+# Sources
+#
+source $(brew --prefix)/etc/bash_completion
+
+# Aliases
+#
+alias b='bundle'
+alias be='bundle exec'

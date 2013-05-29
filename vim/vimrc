@@ -1,0 +1,91 @@
+" Let Vim behave in a more useful way
+"
+set nocompatible
+"
+" Initialize Pathogen (https://github.com/tpope/vim-pathogen)
+"
+execute pathogen#infect()
+
+" Map <Leader> to ','
+"
+let mapleader=','
+
+" Allow netrw to remove non-empty local directories
+"
+let g:netrw_localrmdir='rm -r'
+
+" Allow netrw to hide certain directories
+"
+let g:netrw_list_hide='.swp'
+
+" Allow ctrlp to prompt for arguments when creating files
+"
+let g:ctrlp_arg_map=1
+
+" Syntax highlighting
+"
+syntax enable
+colorscheme base16-default
+
+" Automatically detect plugins and indention for specific filetypes
+"
+filetype plugin indent on
+
+" Put new windows below the current one
+"
+set splitbelow
+
+" Hide abandoned buffers
+"
+set hidden
+
+" Display line- and column numbers
+"
+set number
+set ruler
+
+" <Tab> inserts (2) spaces
+"
+set expandtab
+set tabstop=2
+set shiftwidth=2
+
+" Highlight search patterns while typing
+"
+set incsearch
+
+" Completion mode: 
+"   1) When more than once match, list all matches.
+"
+"   2) Complete till longest common string. If this doesn't result in a longer
+"      string, use next part.
+"
+"   3) Complete the next full match. After the last match, the original string
+"      is used and then the first match again.
+"
+set wildmode=list:longest,full
+
+" Always display the status line
+"
+set laststatus=2
+
+" Enhance statusline (:help statusline for details) 
+"
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%{fugitive#statusline()}\ %=%-16(\%l,%c-%v\ %)%P
+
+" Filetype detection
+"
+"   Markdown
+"
+    au! filetypedetect BufNewFile,BufRead *.md setf markdown
+
+" Mappings
+"
+"   General mappings
+"
+    noremap <Leader>sv :source $MYVIMRC<CR>
+"
+"   Fugitive mappings
+"
+    noremap <Leader>gs :Gstatus<CR>
+    noremap <Leader>gb :Gbrowse<CR>

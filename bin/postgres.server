@@ -1,0 +1,9 @@
+#!/bin/sh
+# requires PostgreSQL to be installed through Homebrew.
+#   brew install postgresql
+#
+
+case "$1" in
+  'start') pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start ;;
+  'stop') pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop ;;
+esac
