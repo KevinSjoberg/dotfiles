@@ -19,3 +19,6 @@
 [submodule "bin/vpm"]
 	path = bin/vpm
 	url = https://github.com/KevinSjoberg/vpm
+[submodule "vim/vim/bundle/vim-rails"]
+	path = vim/vim/bundle/vim-rails
+	url = git://github.com/tpope/vim-rails.git
