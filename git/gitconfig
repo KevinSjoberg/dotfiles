@@ -5,3 +5,5 @@
 	browser = open
 [color]
 	ui = true
+[core]
+	excludesfile = /Users/Kevin/.gitignore
