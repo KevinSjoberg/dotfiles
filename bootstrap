@@ -30,7 +30,7 @@ echo
 echo "boostrap : everything else"
 
 home_dir=$HOME
-sym_dirs=$(find $PWD -maxdepth 2 -mindepth 2 | egrep -v ".git|bin")
+sym_dirs=$(find $PWD -maxdepth 2 -mindepth 2 | egrep -v "\.git|bin")
 
 for f in $sym_dirs; do
   name=$(basename $f)
