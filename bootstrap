@@ -1,6 +1,8 @@
 #!/bin/sh
 
 # Symlink bin directory
+echo "bootstrap : bin symlinks"
+
 bin_dir=$HOME/bin
 sym_dirs=$(find "$PWD/bin" -maxdepth 1 -mindepth 1)
 
@@ -9,18 +11,34 @@ mkdir -p $bin_dir
 for f in $sym_dirs; do
   name=$(basename $f)
 
-  if [ -d $f ] ; then
-	ln -s $f/bin/$name $bin_dir/$name
+  if [ -L $bin_dir/$name ]; then
+    echo "bootstrap : skipping symlink to $name (already exists)."
   else
-	ln -s $f $bin_dir/$name
+    echo "bootstrap : symlinking $name to $bin_dir/$name."
+
+    if [ -d $f ] ; then
+      ln -s $f/bin/$name $bin_dir/$name
+    else
+      ln -s $f $bin_dir/$name
+    fi
   fi
 done
 
+echo
+
 # Symlink everything else
+echo "boostrap : everything else"
+
 home_dir=$HOME
-sym_dirs=$(find "$PWD/bash" "$PWD/git" "$PWD/rubygems" "$PWD/vim" -maxdepth 1 -mindepth 1)
+sym_dirs=$(find $PWD -maxdepth 2 -mindepth 2 | egrep -v ".git|bin")
 
 for f in $sym_dirs; do
   name=$(basename $f)
-  ln -s $f $home_dir/.$name
+
+  if [ -L $home_dir/.$name ]; then
+    echo "bootstrap : skipping symlink to $name (already exists)."
+  else
+    echo "bootstrap : symlinking $name to $home_dir/.$name."
+    ln -s $f $home_dir/.$name
+  fi
 done
