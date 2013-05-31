@@ -73,12 +73,6 @@ set laststatus=2
 "
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%{fugitive#statusline()}\ %=%-16(\%l,%c-%v\ %)%P
 
-" Filetype detection
-"
-"   Markdown
-"
-    au! filetypedetect BufNewFile,BufRead *.md setf markdown
-
 " Mappings
 "
 "   General mappings
