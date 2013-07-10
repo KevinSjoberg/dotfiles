@@ -22,10 +22,14 @@ let g:netrw_list_hide='.swp'
 "
 let g:ctrlp_arg_map=1
 
+" Background color
+"
+set background=light
+
 " Syntax highlighting
 "
 syntax enable
-colorscheme base16-default
+colorscheme solarized
 
 " Automatically detect plugins and indention for specific filetypes
 "
