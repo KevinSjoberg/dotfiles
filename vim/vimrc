@@ -24,7 +24,7 @@ let g:ctrlp_arg_map=1
 
 " Background color
 "
-set background=light
+set background=dark
 
 " Syntax highlighting
 "
