@@ -16,13 +16,11 @@ export PATH=$HOME/bin:/usr/local/share/npm/bin:/usr/local/bin:/usr/local/sbin:/u
 export EDITOR='vim'
 export CLICOLOR=1
 
-# Evals
-#
-eval "$(rbenv init -)"
-
 # Sources
 #
 source $(brew --prefix)/etc/bash_completion
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/auto.sh
 
 # Aliases
 #
