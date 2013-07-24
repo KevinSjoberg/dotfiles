@@ -21,8 +21,3 @@ export CLICOLOR=1
 source $(brew --prefix)/etc/bash_completion
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/opt/chruby/share/chruby/auto.sh
-
-# Aliases
-#
-alias b='bundle'
-alias be='bundle exec'
