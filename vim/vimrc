@@ -1,7 +1,11 @@
 " Let Vim behave in a more useful way
 "
 set nocompatible
+
+" Disable functions keys in Insert mode
 "
+set noesckeys
+
 " Initialize Pathogen (https://github.com/tpope/vim-pathogen)
 "
 execute pathogen#infect()
@@ -29,7 +33,7 @@ set background=dark
 " Syntax highlighting
 "
 syntax enable
-colorscheme solarized
+colorscheme base16-default
 
 " Automatically detect plugins and indention for specific filetypes
 "
@@ -79,11 +83,15 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%{fugitive#statusline()}\ %=%-16(\%l,%c-
 
 " Mappings
 "
-"   General mappings
+"   Make Y work from the cursor to the end of the line
+"
+    map Y y$
+
+"   Make it easy to source ~/.vimrc
 "
     noremap <Leader>sv :source $MYVIMRC<CR>
-"
-"   Fugitive mappings
+
+"   Fugitive
 "
     noremap <Leader>gs :Gstatus<CR>
     noremap <Leader>gb :Gbrowse<CR>
