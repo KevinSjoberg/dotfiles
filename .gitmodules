@@ -19,6 +19,3 @@
 [submodule "bin/vpm"]
 	path = bin/vpm
 	url = https://github.com/KevinSjoberg/vpm
-[submodule "vim/vim/bundle/vim-colors-solarized"]
-	path = vim/vim/bundle/vim-colors-solarized
-	url = git@github.com:altercation/vim-colors-solarized.git
