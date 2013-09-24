@@ -33,7 +33,7 @@ set background=dark
 " Syntax highlighting
 "
 syntax enable
-colorscheme base16-default
+colorscheme elflord
 
 " Automatically detect plugins and indention for specific filetypes
 "
