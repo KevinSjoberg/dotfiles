@@ -18,6 +18,7 @@ export CLICOLOR=1
 
 # Sources
 #
-source /usr/local/Cellar/m/0.0.1/share/m/m
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/auto.sh
+. $(brew --prefix)/etc/bash_completion
+. $(brew --prefix)/Cellar/m/0.0.1/share/m/m
+. $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
+. $(brew --prefix)/opt/chruby/share/chruby/auto.sh
