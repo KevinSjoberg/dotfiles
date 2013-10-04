@@ -12,13 +12,12 @@ shopt -s globstar
 # Exports
 #
 export PS1="\W\[\033[0;32m\]\$(__git_ps1 ' (%s)')\[\033[0m\] \$ "
-export PATH="$PATH:$HOME/bin:/usr/local/share/npm/bin"
+export PATH="$PATH:$HOME/bin"
 export EDITOR='vim'
 export CLICOLOR=1
 
 # Sources
 #
 source /usr/local/Cellar/m/0.0.1/share/m/m
-source $(brew --prefix)/etc/bash_completion
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/opt/chruby/share/chruby/auto.sh
