@@ -26,6 +26,10 @@ let g:netrw_list_hide='.swp'
 "
 let g:ctrlp_arg_map=1
 
+" Let ctrlp search by filename instead of path by default
+"
+let g:ctrlp_by_filename=1
+
 " Background color
 "
 set background=dark
@@ -79,7 +83,7 @@ set laststatus=2
 
 " Enhance statusline (:help statusline for details) 
 "
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%{fugitive#statusline()}\ %=%-16(\%l,%c-%v\ %)%P
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %=%-16(\%l,%c-%v\ %)%P
 
 " Mappings
 "
@@ -95,3 +99,6 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%{fugitive#statusline()}\ %=%-16(\%l,%c-
 "
     noremap <Leader>gs :Gstatus<CR>
     noremap <Leader>gb :Gbrowse<CR>
+"
+"   Convenience mapping for !-commands
+    noremap <Leader>c :!
