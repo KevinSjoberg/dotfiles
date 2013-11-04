@@ -22,14 +22,6 @@ let g:netrw_localrmdir='rm -r'
 "
 let g:netrw_list_hide='.swp'
 
-" Allow ctrlp to prompt for arguments when creating files
-"
-let g:ctrlp_arg_map=1
-
-" Let ctrlp search by filename instead of path by default
-"
-let g:ctrlp_by_filename=1
-
 " Background color
 "
 set background=dark
@@ -38,6 +30,10 @@ set background=dark
 "
 syntax enable
 colorscheme elflord
+
+" Fix backspace in insert mode
+"
+set backspace=indent,eol,start
 
 " Automatically detect plugins and indention for specific filetypes
 "
@@ -91,14 +87,16 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %=%-16(\%l,%c-%v\ %)%P
 "
     map Y y$
 
-"   Make it easy to source ~/.vimrc
-"
-    noremap <Leader>sv :source $MYVIMRC<CR>
+"   Search for files
+    noremap <Leader>f :e **/
 
-"   Fugitive
-"
-    noremap <Leader>gs :Gstatus<CR>
-    noremap <Leader>gb :Gbrowse<CR>
-"
-"   Convenience mapping for !-commands
+"   Search for <keyword> in files
+    noremap <Leader>g :grep -R
+
+"   Run shell commands
     noremap <Leader>c :!
+
+"   Edit and source ~/.vimrc
+"
+    noremap <Leader>ve :e  $MYVIMRC<CR>
+    noremap <Leader>vs :so $MYVIMRC<CR>
