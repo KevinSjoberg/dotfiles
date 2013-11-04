@@ -15,5 +15,5 @@ eval "$(pyenv init -)"
 
 # Sources
 #
+. $(brew --prefix)/share/m/m
 . $(brew --prefix)/etc/bash_completion
-. $(brew --prefix)/Cellar/m/0.1.1/share/m/m

@@ -22,14 +22,10 @@ let g:netrw_localrmdir='rm -r'
 "
 let g:netrw_list_hide='.swp'
 
-" Background color
-"
-set background=dark
-
-" Syntax highlighting
+" Syntax
 "
 syntax enable
-colorscheme elflord
+colorscheme default
 
 " Fix backspace in insert mode
 "
