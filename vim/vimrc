@@ -16,16 +16,17 @@ let mapleader=','
 
 " Allow netrw to remove non-empty local directories
 "
-let g:netrw_localrmdir='rm -r'
+let g:netrw_localrmdir='rm -fR'
 
 " Allow netrw to hide certain directories
 "
-let g:netrw_list_hide='.swp'
+let g:netrw_list_hide='.swp,.git'
 
 " Syntax
 "
 syntax enable
-colorscheme default
+set background=dark
+colorscheme solarized
 
 " Fix backspace in insert mode
 "
@@ -84,7 +85,9 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %=%-16(\%l,%c-%v\ %)%P
     map Y y$
 
 "   Search for files
-    noremap <Leader>f :e **/
+    noremap <Leader>fe :e **/
+    noremap <Leader>fs :sp **/
+    noremap <Leader>fv :vsp **/
 
 "   Search for <keyword> in files
     noremap <Leader>g :grep -R
