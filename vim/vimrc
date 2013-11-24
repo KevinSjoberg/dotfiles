@@ -14,6 +14,10 @@ execute pathogen#infect()
 "
 let mapleader=','
 
+" Allow ctrlp to search by filename by default
+"
+let g:ctrlp_by_filename=1
+
 " Allow netrw to remove non-empty local directories
 "
 let g:netrw_localrmdir='rm -fR'
@@ -83,14 +87,6 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %=%-16(\%l,%c-%v\ %)%P
 "   Make Y work from the cursor to the end of the line
 "
     map Y y$
-
-"   Search for files
-    noremap <Leader>fe :e **/
-    noremap <Leader>fs :sp **/
-    noremap <Leader>fv :vsp **/
-
-"   Search for <keyword> in files
-    noremap <Leader>g :grep -R
 
 "   Run shell commands
     noremap <Leader>c :!
