@@ -14,9 +14,20 @@ execute pathogen#infect()
 "
 let mapleader=','
 
+" Key code timeout
+"
+set ttimeout
+set ttimeoutlen=50
+
+" Use ag (The Silver Searcher) for :grep
+set grepprg=ag\ --nogroup\ --nocolor
+
 " Allow ctrlp to search by filename by default
 "
 let g:ctrlp_by_filename=1
+
+" Use ag (The Silver Searcher) for ctrlp
+let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
 
 " Allow netrw to remove non-empty local directories
 "
@@ -30,7 +41,7 @@ let g:netrw_list_hide='.swp,.git'
 "
 syntax enable
 set background=dark
-colorscheme base16-default
+colorscheme solarized
 
 " Fix backspace in insert mode
 "
@@ -63,16 +74,8 @@ set shiftwidth=2
 "
 set incsearch
 
-" Completion mode: 
-"   1) When more than once match, list all matches.
-"
-"   2) Complete till longest common string. If this doesn't result in a longer
-"      string, use next part.
-"
-"   3) Complete the next full match. After the last match, the original string
-"      is used and then the first match again.
-"
-set wildmode=list:longest,full
+" Use wildmenu
+set wildmenu
 
 " Always display the status line
 "
@@ -80,18 +83,12 @@ set laststatus=2
 
 " Enhance statusline (:help statusline for details) 
 "
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %=%-16(\%l,%c-%v\ %)%P
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%{fugitive#statusline()}\ %=%-16(\%l,%c-%v\ %)%P
 
 " Mappings
 "
-"   Make Y work from the cursor to the end of the line
-"
-    map Y y$
+map Y y$
 
-"   Run shell commands
-    noremap <Leader>c :!
-
-"   Edit and source ~/.vimrc
-"
-    noremap <Leader>ve :e  $MYVIMRC<CR>
-    noremap <Leader>vs :so $MYVIMRC<CR>
+noremap <Leader>c :!
+noremap <Leader>ve :e  $MYVIMRC<CR>
+noremap <Leader>vs :so $MYVIMRC<CR>
