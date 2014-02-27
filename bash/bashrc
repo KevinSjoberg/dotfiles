@@ -4,7 +4,7 @@ stty -ixon
 
 # Exports
 #
-export PS1="\W\[\033[0;32m\]\$(__git_ps1 ' (%s)')\[\033[0m\] \$ "
+export PS1="\w\$(__git_ps1 ' on \[\033[0;32m\]%s\[\033[0m\]') \$ "
 export PATH="$PATH:$HOME/bin"
 export EDITOR='vim'
 export CLICOLOR=1
