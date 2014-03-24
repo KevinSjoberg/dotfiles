@@ -36,6 +36,8 @@ let g:netrw_list_hide='.swp,.git'
 " Syntax
 "
 syntax enable
+set background=dark
+colorscheme base16-default
 
 " Fix backspace in insert mode
 "
@@ -86,19 +88,3 @@ noremap <Leader>c :!
 noremap <Leader>ve :e  $MYVIMRC<CR>
 noremap <Leader>vs :so $MYVIMRC<CR>
 noremap <C-b> :CtrlPBuffer<CR>
-
-" Functions
-"
-if !exists("*RSpecCommands")
-  function RSpecCommands(bang)
-    if !a:bang
-      noremap <Leader>t :!bundle exec rspec %<CR>
-      noremap <Leader>T :!bundle exec rspec %:<C-R>=line('.')<CR><CR>
-    else
-      silent! nunmap <Leader>t
-      silent! nunmap <Leader>T
-    endif
-  endfunction
-
-  command -bang RSpec call RSpecCommands(<bang>0)
-endif
