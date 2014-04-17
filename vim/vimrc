@@ -1,90 +1,53 @@
-" Let Vim behave in a more useful way
-"
-set nocompatible
-
-" Disable functions keys in Insert mode
-"
 set noesckeys
-
-" Initialize Pathogen (https://github.com/tpope/vim-pathogen)
-"
+set nocompatible
 execute pathogen#infect()
 
-" Map <Leader> to ','
-"
-let mapleader=','
-
-" Key code timeout
-"
-set ttimeout
-set ttimeoutlen=50
-
-" Use ag (The Silver Searcher) for :grep
-set grepprg=ag\ --nogroup\ --nocolor
-
-" Use ag (The Silver Searcher) for ctrlp
-let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
-
-" Allow netrw to remove non-empty local directories
-"
-let g:netrw_localrmdir='rm -fR'
-
-" Allow netrw to hide certain directories
-"
-let g:netrw_list_hide='.swp,.git'
-
-" Syntax
-"
 syntax enable
-set background=dark
-colorscheme base16-default
-
-" Fix backspace in insert mode
-"
-set backspace=indent,eol,start
-
-" Automatically detect plugins and indention for specific filetypes
-"
 filetype plugin indent on
 
-" Put new windows below the current one
-"
-set splitbelow
+" Load matchit.vim, but only if the user hasn't installed a newer version.
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
 
-" Hide abandoned buffers
+" Settings
 "
+let mapleader=','
+let base16colorspace=256
+
+colorscheme base16-default
+
+set ttimeout
+set ttimeoutlen=50
+set grepprg=ag\ --nogroup\ --nocolor
+set backspace=indent,eol,start
+set smarttab
+set shiftround
+set autoindent
+set complete-=i
+set nrformats-=octal
 set hidden
-
-" Display line- and column numbers
-"
+set splitbelow
 set number
 set ruler
-
-" <Tab> inserts (2) spaces
-"
-set expandtab
-set tabstop=2
-set shiftwidth=2
-
-" Highlight search patterns while typing
-"
 set incsearch
-
-" Use wildmenu
 set wildmenu
-
-" Always display the status line
-"
 set laststatus=2
+set autoread
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %=%-16(\%l,%c-%v\ %)%P
 
-" Enhance statusline (:help statusline for details) 
+
+" Plugin settings
 "
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y%{fugitive#statusline()}\ %=%-16(\%l,%c-%v\ %)%P
+let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
+let g:netrw_localrmdir='rm -fR'
+let g:netrw_list_hide='.swp,.git'
 
 " Mappings
 "
-map Y y$
 noremap <Leader>c :!
 noremap <Leader>ve :e  $MYVIMRC<CR>
 noremap <Leader>vs :so $MYVIMRC<CR>
+noremap <Leader>p :put+<CR>
+noremap <Leader>y :yank+<CR>
 noremap <C-b> :CtrlPBuffer<CR>
