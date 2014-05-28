@@ -13,15 +13,15 @@ endif
 " Settings
 "
 let mapleader=','
-let base16colorspace=256
-
-colorscheme base16-default
 
 set ttimeout
 set ttimeoutlen=50
 set grepprg=ag\ --nogroup\ --nocolor
 set backspace=indent,eol,start
 set smarttab
+set expandtab
+set shiftwidth=2
+set softtabstop=2
 set shiftround
 set autoindent
 set complete-=i
@@ -42,6 +42,10 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %=%-16(\%l,%c-%v\ %)%P
 let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
 let g:netrw_localrmdir='rm -fR'
 let g:netrw_list_hide='.swp,.git'
+
+" Commands
+"
+command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 " Mappings
 "

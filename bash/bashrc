@@ -23,4 +23,3 @@ eval "$(pyenv init -)"
 ## SOURCE FILES IN CURRENT SHELL ##
 . $(brew --prefix)/share/m/m
 . $(brew --prefix)/etc/bash_completion
-. $HOME/.config/base16-shell/base16-default.sh
