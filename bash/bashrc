@@ -1,7 +1,10 @@
 stty -ixon
 
+## GOPATH ##
+export GOPATH="$HOME/code/go"
+
 ## PATH ##
-export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$GOPATH/bin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 ## LOCALE ##
 export LANG="en_US.UTF-8"
@@ -16,10 +19,7 @@ export EDITOR='vim'
 ## COLORS ##
 export CLICOLOR=1
 
-## VERSION MANAGERS ##
-eval "$(rbenv init -)"
-eval "$(pyenv init -)"
-
 ## SOURCE FILES IN CURRENT SHELL ##
 . $(brew --prefix)/share/m/m
 . $(brew --prefix)/etc/bash_completion
+. ~/.base16-default.dark.sh

@@ -13,6 +13,9 @@ endif
 " Settings
 "
 let mapleader=','
+let base16colorspace=256
+
+colorscheme base16-default
 
 set ttimeout
 set ttimeoutlen=50
@@ -32,10 +35,11 @@ set number
 set ruler
 set incsearch
 set wildmenu
+set wildignore="node_modules"
 set laststatus=2
 set autoread
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %=%-16(\%l,%c-%v\ %)%P
-
+set background=dark
 
 " Plugin settings
 "
@@ -50,8 +54,7 @@ command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 " Mappings
 "
 noremap <Leader>c :!
-noremap <Leader>ve :e  $MYVIMRC<CR>
-noremap <Leader>vs :so $MYVIMRC<CR>
+noremap <Leader>ve :edit $MYVIMRC<CR>
+noremap <Leader>vs :source $MYVIMRC<CR>
 noremap <Leader>p :put+<CR>
 noremap <Leader>y :yank+<CR>
-noremap <C-b> :CtrlPBuffer<CR>
