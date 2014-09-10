@@ -17,6 +17,10 @@ let base16colorspace=256
 
 colorscheme base16-default
 
+set nobackup
+set noswapfile
+set nowritebackup
+
 set ttimeout
 set ttimeoutlen=50
 set grepprg=ag\ --nogroup\ --nocolor

@@ -22,4 +22,4 @@ export CLICOLOR=1
 ## SOURCE FILES IN CURRENT SHELL ##
 . $(brew --prefix)/share/m/m
 . $(brew --prefix)/etc/bash_completion
-. ~/.base16-default.dark.sh
+. $HOME/.base16-default.dark.sh
