@@ -13,9 +13,6 @@ endif
 " Settings
 "
 let mapleader=','
-let base16colorspace=256
-
-colorscheme base16-default
 
 set nobackup
 set noswapfile
@@ -37,19 +34,22 @@ set hidden
 set splitbelow
 set number
 set ruler
+set hlsearch
 set incsearch
 set wildmenu
-set wildignore="node_modules"
 set laststatus=2
 set autoread
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %=%-16(\%l,%c-%v\ %)%P
+set lazyredraw
+set nocursorline
+set scrolljump=8
 set background=dark
 
 " Plugin settings
 "
-let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
 let g:netrw_localrmdir='rm -fR'
-let g:netrw_list_hide='.swp,.git'
+let g:netrw_list_hide='.git,.svn,.idea'
+let g:ctrlp_max_files=0
+let g:NERDTreeHighlightCursorline=0
 
 " Commands
 "
@@ -57,8 +57,11 @@ command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 " Mappings
 "
-noremap <Leader>c :!
 noremap <Leader>ve :edit $MYVIMRC<CR>
 noremap <Leader>vs :source $MYVIMRC<CR>
 noremap <Leader>p :put+<CR>
 noremap <Leader>y :yank+<CR>
+noremap <Leader>nf :NERDTreeFind<CR>
+noremap <Leader>nt :NERDTreeToggle<CR>
+noremap <Leader>cp :let @+=expand("%:p")<CR>
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
