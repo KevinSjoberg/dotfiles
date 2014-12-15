@@ -19,3 +19,4 @@ export CLICOLOR=1
 
 ## SOURCE FILES IN CURRENT SHELL ##
 . $(brew --prefix)/etc/bash_completion
+. $HOME/.config/base16-shell/base16-default.dark.sh

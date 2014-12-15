@@ -13,6 +13,9 @@ endif
 " Settings
 "
 let mapleader=','
+let base16colorspace=256
+
+colorscheme base16-default
 
 set nobackup
 set noswapfile
