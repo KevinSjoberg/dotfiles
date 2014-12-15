@@ -17,6 +17,9 @@ export EDITOR='vim'
 ## COLORS ##
 export CLICOLOR=1
 
+## ALIASES ##
+alias hidden='ls -d .*'
+
 ## SOURCE FILES IN CURRENT SHELL ##
 . $(brew --prefix)/etc/bash_completion
 . $HOME/.config/base16-shell/base16-default.dark.sh
