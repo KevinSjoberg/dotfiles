@@ -5,6 +5,9 @@ execute pathogen#infect()
 syntax enable
 filetype plugin indent on
 
+" Load fzf
+set rtp+=/usr/local/Cellar/fzf/0.9.4-1
+
 " Load matchit.vim, but only if the user hasn't installed a newer version.
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
   runtime! macros/matchit.vim
@@ -51,20 +54,22 @@ set background=dark
 "
 let g:netrw_localrmdir='rm -fR'
 let g:netrw_list_hide='.git,.svn,.idea'
-let g:ctrlp_max_files=0
 let g:NERDTreeHighlightCursorline=0
 
 " Commands
 "
 command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command! QflistClear :call setqflist([])
 
 " Mappings
 "
-noremap <Leader>ve :edit $MYVIMRC<CR>
-noremap <Leader>vs :source $MYVIMRC<CR>
-noremap <Leader>p :put+<CR>
+nnoremap <Leader>ve :edit $MYVIMRC<CR>
+nnoremap <Leader>vs :source $MYVIMRC<CR>
+nnoremap <Leader>p :put+<CR>
 noremap <Leader>y :yank+<CR>
-noremap <Leader>nf :NERDTreeFind<CR>
-noremap <Leader>nt :NERDTreeToggle<CR>
-noremap <Leader>cp :let @+=expand("%:p")<CR>
+nnoremap <Leader>nf :NERDTreeFind<CR>
+nnoremap <Leader>nt :NERDTreeToggle<CR>
+nnoremap <Leader>o :!open %<CR>
+nnoremap <silent> <Leader>cp :let @+=expand("%:p")<CR>
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+nnoremap <silent> <C-p> :call fzf#run({'sink': 'edit'})<CR>
