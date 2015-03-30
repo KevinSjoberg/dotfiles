@@ -1,8 +1,10 @@
 stty -ixon
 
+## GOPATH ##
+export GOPATH=$HOME/go
 
 ## PATH ##
-export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+export PATH="$HOME/bin:$GOPATH/bin:/usr/local/opt/go/libexec/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 
 ## LOCALE ##
 export LANG="en_US.UTF-8"
@@ -21,6 +23,7 @@ export CLICOLOR=1
 alias hidden='ls -d .??*'
 
 ## SOURCE FILES IN CURRENT SHELL ##
+. /usr/local/share/m/m
 . $(brew --prefix)/etc/bash_completion
 . $HOME/.config/base16-shell/base16-default.dark.sh
 . $HOME/.fzf.bash
