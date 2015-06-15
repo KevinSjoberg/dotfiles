@@ -6,7 +6,7 @@ syntax enable
 filetype plugin indent on
 
 " Load fzf
-set rtp+=/usr/local/Cellar/fzf/0.9.11
+set rtp+=/usr/local/Cellar/fzf/0.9.12
 
 " Load matchit.vim, but only if the user hasn't installed a newer version.
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
@@ -72,4 +72,4 @@ nnoremap <Leader>nt :NERDTreeToggle<CR>
 nnoremap <Leader>o :!open %<CR>
 nnoremap <silent> <Leader>cp :let @+=expand("%:p")<CR>
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-nnoremap <silent> <C-p> :call fzf#run({'sink': 'edit'})<CR>
+nnoremap <silent> <C-p> :FZF<CR>

@@ -20,7 +20,9 @@ export EDITOR='vim'
 export CLICOLOR=1
 
 ## ALIASES ##
-alias hidden='ls -d .??*'
+alias week="date +\"%V\""
+alias tmux!="tmux new -s $(basename $PWD) $@"
+alias hidden="ls -d .??*"
 
 ## SOURCE FILES IN CURRENT SHELL ##
 . /usr/local/share/m/m
