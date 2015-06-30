@@ -15,7 +15,6 @@ export CLICOLOR=1
 
 ## ALIASES ##
 alias week="date +\"%V\""
-alias tmux!="tmux new -s $(basename $PWD)"
 alias hidden="ls -d .??*"
 
 ## GOLANG ##
@@ -25,8 +24,14 @@ export PATH="$GOPATH/bin:$PATH"
 ## HOME BIN ##
 export PATH="$HOME/bin:$PATH"
 
+## FUNCTIONS ##
+tmux!() {
+  tmux new -s $(basename "$PWD")
+}
+
 ## SOURCE FILES IN CURRENT SHELL ##
 . $(brew --prefix)/share/m/m
 . $(brew --prefix)/etc/bash_completion
+. $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
 . $HOME/.config/base16-shell/base16-default.dark.sh
 . $HOME/.fzf.bash
