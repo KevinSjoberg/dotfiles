@@ -52,6 +52,9 @@ set background=dark
 let g:netrw_localrmdir='rm -fR'
 let g:netrw_list_hide='.git,.svn,.idea'
 let g:NERDTreeHighlightCursorline=0
+let g:choosewin_blink_on_land=0
+let g:choosewin_color_label={'cterm': [8, 18, 'reverse']}
+let g:choosewin_color_label_current={'cterm': [20, 19, 'bold,reverse']}
 
 " Commands
 "
@@ -69,3 +72,6 @@ nnoremap <Leader>nt :NERDTreeToggle<CR>
 nnoremap <Leader>o :!open %<CR>
 nnoremap <silent> <Leader>cp :let @+=expand("%:p")<CR>
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+nnoremap <C-b> :CtrlPBuffer<CR>
+nnoremap <F8> :TagbarToggle<CR>
+nmap - <Plug>(choosewin)
