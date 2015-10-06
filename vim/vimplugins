@@ -5,6 +5,7 @@ StanAngeloff/php.vim
 majutsushi/tagbar
 MarcWeber/vim-addon-local-vimrc
 t9md/vim-choosewin
+kchmck/vim-coffee-script
 tpope/vim-commentary
 tpope/vim-dispatch
 fatih/vim-go
@@ -14,5 +15,7 @@ tpope/vim-repeat
 vim-ruby/vim-ruby
 tpope/vim-scriptease
 tpope/vim-sleuth
+slim-template/vim-slim
 tpope/vim-surround
 tpope/vim-unimpaired
+tpope/vim-vinegar
