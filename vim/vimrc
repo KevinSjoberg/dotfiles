@@ -55,6 +55,8 @@ let g:NERDTreeHighlightCursorline=0
 let g:choosewin_blink_on_land=0
 let g:choosewin_color_label={'cterm': [8, 18, 'reverse']}
 let g:choosewin_color_label_current={'cterm': [20, 19, 'bold,reverse']}
+let g:ctrlp_use_caching=0
+let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
 
 " Commands
 "
@@ -63,6 +65,7 @@ command! QflistClear :call setqflist([])
 
 " Mappings
 "
+map Q :quit<CR>
 nnoremap <Leader>ve :edit $MYVIMRC<CR>
 nnoremap <Leader>vs :source $MYVIMRC<CR>
 nnoremap <Leader>p :put+<CR>
@@ -74,4 +77,4 @@ nnoremap <silent> <Leader>cp :let @+=expand("%:p")<CR>
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 nnoremap <C-b> :CtrlPBuffer<CR>
 nnoremap <F8> :TagbarToggle<CR>
-nmap - <Plug>(choosewin)
+nmap <Leader>q <Plug>(choosewin)

@@ -25,8 +25,22 @@ export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
 ## FUNCTIONS ##
-tmux!() {
-  tmux new -s $(basename "$PWD")
+t() {
+    tmux new -s $(basename "$PWD")
+}
+
+e() {
+    if [[ "$#" -ne 1 ]]; then
+        vim .
+    else
+        vim $1
+    fi
+}
+
+b() {
+    local command="$1"
+    shift
+    ./bin/$command "$@"
 }
 
 ## SOURCE FILES IN CURRENT SHELL ##
