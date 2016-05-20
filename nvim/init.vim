@@ -13,34 +13,58 @@ endif
 " Settings
 "
 
+" Use ',' as leader key
 let mapleader=','
 
-set nobackup
+" Use The Silver Searcher (AG) for grepping
+set grepprg=ag\ --vimgrep
+
+" Do not write swap or backup files
 set noswapfile
 set nowritebackup
 
+" Reduce wait time for key code sequences to complete
 set ttimeout
 set ttimeoutlen=50
-set shiftround
+
+" Copy indent from current line when starting a new line
 set autoindent
-set complete-=i
-set nrformats-=octal
+
+" Hiden buffers when abandoned
 set hidden
+
+" Split below current buffer
 set splitbelow
+
+" Show line numbers
 set number
+
+" Show the line and column number of the cursor position
 set ruler
+
+" When a file has been detected to have been changed outside of Vim and it has
+" not been changed inside of Vim, automatically read it again
 set autoread
+
+" Do not redraw while executing macros, registers and other commands that have
+" not been typed. Also, updating the window title is postponed
 set lazyredraw
+
+" Do not highlight the current line
 set nocursorline
+
+" Use dark background
 set background=dark
+
+" Set completion mode when autocompleting with <Tab>
+set wildmode=list:longest,full
 
 " Plugins
 "
-
 call plug#begin('~/.config/nvim/plugged')
 
 	" Colorscheme
-	Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+	Plug 'chriskempson/base16-vim'
 
 	" Languages/Syntax
 	Plug 'mxw/vim-jsx'
@@ -56,9 +80,8 @@ call plug#begin('~/.config/nvim/plugged')
 	" Utilities
 	Plug 'tpope/vim-sleuth'
 	Plug 'tpope/vim-repeat'
-	Plug 'mhinz/vim-grepper'
 	Plug 'tpope/vim-vinegar'
-	Plug 'tpope/vim-fugitive'
+	Plug 'tpope/vim-dispatch'
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-unimpaired'
 	Plug 'Raimondi/delimitMate'
@@ -73,19 +96,23 @@ call plug#end()
 
 " Plugin settings
 "
-
-" Dracula
-colorscheme dracula
+" Base16
+let base16colorspace=256
+colorscheme base16-default
 
 " Vim test
-let test#strategy = "neovim"
+let test#strategy='dispatch'
 
 " Vim jsx
 let g:jsx_ext_required=0
 
-" Autocommands
+" Neomake
 "
+let g:neomake_verbose=0
 autocmd! BufWritePost * Neomake
+
+" Netrw
+let g:netrw_localrmdir='rm -r'
 
 " Mappings
 "
