@@ -14,7 +14,11 @@ endif
 "
 
 " Use ',' as leader key
-let mapleader=','
+let mapleader=","
+let maplocalleader=","
+
+" 24-bit color support
+set termguicolors
 
 " Use The Silver Searcher (AG) for grepping
 set grepprg=ag\ --vimgrep
@@ -59,74 +63,91 @@ set background=dark
 " Set completion mode when autocompleting with <Tab>
 set wildmode=list:longest,full
 
+" Do not show mode messages
+set noshowmode
+
 " Plugins
 "
 call plug#begin('~/.config/nvim/plugged')
 
-	" Colorscheme
-	Plug 'chriskempson/base16-vim'
+	" Colorscheme & statusline
+	Plug 'dracula/vim'
+	Plug 'itchyny/lightline.vim'
 
-	" Languages/Syntax
-	Plug 'mxw/vim-jsx'
+	" Languages
+	Plug 'sheerun/vim-polyglot'
+
+	" Go
 	Plug 'fatih/vim-go'
-	Plug 'dag/vim-fish'
-	Plug 'othree/html5.vim'
-	Plug 'vim-ruby/vim-ruby'
-	Plug 'StanAngeloff/php.vim'
-	Plug 'slim-template/vim-slim'
-	Plug 'pangloss/vim-javascript'
-	Plug 'kchmck/vim-coffee-script'
 
-	" Utilities
-	Plug 'tpope/vim-sleuth'
+	" Other
+	Plug 'MarcWeber/vim-addon-local-vimrc'
+	Plug 'benekastah/neomake'
+	Plug 'editorconfig/editorconfig-vim'
+	Plug 'janko-m/vim-test'
+	Plug 'rizzatti/dash.vim'
+	Plug 'tpope/vim-commentary'
+	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-repeat'
-	Plug 'tpope/vim-vinegar'
-	Plug 'tpope/vim-dispatch'
+	Plug 'tpope/vim-sleuth'
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-unimpaired'
-	Plug 'Raimondi/delimitMate'
-
-	" Linting
-	Plug 'benekastah/neomake'
-
-	" Testing
-	Plug 'janko-m/vim-test'
+	Plug 'tpope/vim-vinegar'
 
 call plug#end()
 
 " Plugin settings
 "
-" Base16
-let base16colorspace=256
-colorscheme base16-default
+
+" Dracula
+colorscheme dracula
+
+" Lightline
+let g:lightline = {
+      \ 'colorscheme': 'Dracula',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component': {
+      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
+      \ },
+      \ 'component_visible_condition': {
+      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())',
+      \ }
+      \ }
 
 " Vim test
-let test#strategy='dispatch'
-
-" Vim jsx
-let g:jsx_ext_required=0
+let g:test#strategy='neovim'
 
 " Neomake
 "
-let g:neomake_verbose=0
 autocmd! BufWritePost * Neomake
 
 " Netrw
 let g:netrw_localrmdir='rm -r'
 
+" Vim Go
+let g:go_fmt_command='goimports'
+
 " Mappings
 "
-map Q :quit<CR>
+nmap <Leader>q  <Plug>(choosewin)
 inoremap § <Esc>
 cnoremap § <C-c>
 tnoremap § <C-\><C-n>
 nnoremap <Leader>ve :edit $MYVIMRC<CR>
 nnoremap <Leader>vs :source $MYVIMRC<CR>
-nnoremap <Leader>f :Grepper<CR>
-nnoremap <silent> <Leader>cp :let @+=expand("%:p")<CR>
-nnoremap <C-P> :FZF -m<CR>
+nnoremap <Space> :nohlsearch<CR>
+nnoremap <silent> <Leader>cpf :let @+=expand("%:p")<CR>
+nnoremap <silent> <Leader>cpr :let @+=expand("%")<CR>
+nnoremap <C-p> :FZF -m<CR>
 nnoremap <silent> <leader>t :TestNearest<CR>
 nnoremap <silent> <leader>T :TestFile<CR>
-nnoremap <silent> <leader>a :TestSuite<CR>
-nnoremap <silent> <leader>l :TestLast<CR>
-nnoremap <silent> <leader>g :TestVisit<CR>
+nnoremap <Leader>d :Dash<CR>
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
