@@ -70,26 +70,26 @@ set noshowmode
 "
 call plug#begin('~/.config/nvim/plugged')
 
-	" Colorscheme & statusline
+	" Colorscheme
 	Plug 'dracula/vim'
-	Plug 'itchyny/lightline.vim'
 
-	" Languages
+	" Syntax
 	Plug 'sheerun/vim-polyglot'
 
 	" Go
 	Plug 'fatih/vim-go'
 
 	" Other
+	Plug 'AndrewRadev/splitjoin.vim'
 	Plug 'MarcWeber/vim-addon-local-vimrc'
 	Plug 'benekastah/neomake'
 	Plug 'editorconfig/editorconfig-vim'
 	Plug 'janko-m/vim-test'
-	Plug 'rizzatti/dash.vim'
+	Plug 'junegunn/goyo.vim'
+	Plug 'tpope/vim-abolish'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-repeat'
-	Plug 'tpope/vim-sleuth'
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-unimpaired'
 	Plug 'tpope/vim-vinegar'
@@ -102,24 +102,6 @@ call plug#end()
 " Dracula
 colorscheme dracula
 
-" Lightline
-let g:lightline = {
-      \ 'colorscheme': 'Dracula',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component': {
-      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
-      \ },
-      \ 'component_visible_condition': {
-      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())',
-      \ }
-      \ }
-
-" Vim test
-let g:test#strategy='neovim'
-
 " Neomake
 "
 autocmd! BufWritePost * Neomake
@@ -130,9 +112,13 @@ let g:netrw_localrmdir='rm -r'
 " Vim Go
 let g:go_fmt_command='goimports'
 
+" Vim Test
+let test#strategy='neovim'
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+
 " Mappings
 "
-nmap <Leader>q  <Plug>(choosewin)
 inoremap § <Esc>
 cnoremap § <C-c>
 tnoremap § <C-\><C-n>
@@ -142,9 +128,7 @@ nnoremap <Space> :nohlsearch<CR>
 nnoremap <silent> <Leader>cpf :let @+=expand("%:p")<CR>
 nnoremap <silent> <Leader>cpr :let @+=expand("%")<CR>
 nnoremap <C-p> :FZF -m<CR>
-nnoremap <silent> <leader>t :TestNearest<CR>
-nnoremap <silent> <leader>T :TestFile<CR>
-nnoremap <Leader>d :Dash<CR>
+nnoremap <Leader>g :grep '\b<cword>\b' *<CR>
 vmap <Leader>y "+y
 vmap <Leader>d "+d
 nmap <Leader>p "+p
