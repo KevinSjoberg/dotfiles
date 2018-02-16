@@ -7,3 +7,5 @@
 	ui = true
 [core]
 	excludesfile = /Users/KevinSjoberg/.gitignore
+[credential]
+	helper = osxkeychain
